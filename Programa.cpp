@@ -1,72 +1,33 @@
-//  Sesión 15 - 19/09/2022   -- Funciones 
+//  Sesión 18 - 26/09/2022   -- Recursividad o recursión 
 #include <stdio.h>		//  Para la i/o del programa
 #include <stdlib.h>		//  Para system()
 
-#define pausa system("pause")		
+#define pausa system("pause")	
 
-// Decclaración de función
-//  Encabezado		qué tipo regresa - nombre - (qué necesita)
-//  Cuerpo ( { Bloque de código })
-
-int square(int num)
+//  Función factorial iterativo
+int factoriali(int n)
 {
-	return num * num;
-}
-int var;		//  varaible externa
-void imprimeLinea(int valor)
-{
-	static int lin = 1;
-	printf("Linea %d: El valor es %d. \n", lin++, valor);
-	var = 0;
+	int fact = 1, i;
+	for(i = 1; i <= n; i++)
+		fact = fact * i;
+	return fact;
 }
 
+//		n! = 1					Si n = 1
+//		n! = n * (n - 1)!		Si n > 1
+int factorial(int n)
+{
+	if( n == 1 )						// Si n = 1 (criterio de paro)	
+		return 1;						// n! = 1
+	else								// Si n > 1
+		return n * factorial( n - 1 );	// n! = n * ( n - 1 )!
+}
 
  
-int main()			//  Encabezado
- {					//  Cuerpo
-	
-	
-	//int resultado, dato;
-	// printf("DAme un numero: ");
-	//scanf("%d", &dato);
-	//resultado = square(dato);		// Invocación de función 
-	//printf("El resultado es: %d \n", resultado);
-	//
-	// //  Para C:
-	// //  Lo unico que es falso es el 0
-	// //  ... Todo lo demás es verdadero ( tradicionalmente el 1)
-	// var = 1;	//  Verdadero
-	// if( square(5) )
-	//	 printf("Esto es verdadro\n" );
-	// else
-	//	 printf("Esto es falso\n");
-	//pausa;
-
-	//if( var )
-	//	 return 1;		// regresamos verdadero
-	// else
-	//	 return 0;		// regresamos falso
-
-	 /*int i;
-	 for( i = 1; i <= 10; i++)
-		 imprimeLinea(i);*/
-
-	 {
-	int x = 1;
-        printf("%d\n",x);
-	{
-	    int x = 2;
-	    printf("%d\n",x);
-	    {
-		x += 1;
-		 printf("%d\n",x);
-	    }
-	    printf("%d\n",x);
-	}
-	printf("%d",x);
-	pausa;
-}
-
+int main()			
+ {					
+	printf("El factorial iterativo de 5 es %d \n", factoriali(5) );
+	printf("El factorial recursivo de 5 es %d \n", factorial(5) );
 
 
 	pausa;
