@@ -1,8 +1,5 @@
 //  Sesión 19 - 28/09/2022   -- Recursividad o recursión 
-#include <stdio.h>		//  Para la i/o del programa
-#include <stdlib.h>		//  Para system()
-
-#define pausa system("pause")	
+#include "estructura.h"
 
 //  Función factorial iterativo
 int factoriali(int n)
@@ -55,7 +52,23 @@ int Fibonacci(int i)
 
 //		Pi = 4						Si i = 1
 //		Pi = Pi-1 - 4 / (2i - 1)	Si i es par y i > 1
+
 //		Pi = Pi-1 + 4 / (2i + 1)	Si i es impar y i > 1
+
+ 
+int main()			
+ {			
+	 int valor = 5;
+	printf("El factorial iterativo de 5 es %d \n", factoriali(5) );
+	printf("El factorial recursivo de 5 es %d \n", factorial(valor) );
+	printf("40 por 12 es %d \n", multiplica(40, 12) );
+	printf("5 elevado a 3 es %d \n", potencia(5, 3) );
+	printf("Fibonacci de 5 es %d \n", Fibonacci(5) );
+	printf("pi a 100 términos es %f \n", pi(90) );
+
+	pausa;
+ }
+
 float pi(int i)
 {
 	if(i == 1)
@@ -65,16 +78,3 @@ float pi(int i)
 	else
 		return pi(i - 1) + 4.0 / ( 2 * i - 1);
 }
-
- 
-int main()			
- {					
-	printf("El factorial iterativo de 5 es %d \n", factoriali(5) );
-	printf("El factorial recursivo de 5 es %d \n", factorial(5) );
-	printf("40 por 12 es %d \n", multiplica(40, 12) );
-	printf("5 elevado a 3 es %d \n", potencia(5, 3) );
-	printf("Fibonacci de 5 es %d \n", Fibonacci(5) );
-	printf("pi a 100 términos es %f \n", pi(100) );
-
-	pausa;
- }
