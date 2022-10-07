@@ -12,7 +12,7 @@ int main()
 	//  Declaro un arreglo de 15 variables enteras-
 	int arreglo[SIZE] = { 0, 1, 2, 3, 4 };		
 	
-	arreglo[8] = 500;
+	arreglo[] = 500;
 
 	pausa;
 	return 0;
