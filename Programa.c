@@ -6,7 +6,7 @@
 #define pausa system("pause")
 #define cls system("cls")
 
-#define SIZE 15			//  Tamaño de mi archivo de Datos
+#define SIZE 15000			//  Tamaño de mi archivo de Datos
 
 void imprimeArreglo(int arr[])
 {
@@ -16,15 +16,31 @@ void imprimeArreglo(int arr[])
 	putchar('\n');
 }
 
-// Programe su algoritmo de Ordenamiento aquí
-void nombreAlgoritmo(int arr[])				//  CAMBIE el nombre de la función
+void binaria(int arr[], int linf, int lsup, int dato)
 {
-	//  Escriba su algoritmo de ordenamiento aquí
+	//
 }
+
+void secuencial(int arr[], int tamaño, int dato)
+{
+	int i, indice;
+	for(i = 0; i < tamaño; i++)
+	{
+		if(arr[i] == dato)
+		{
+			printf("El numero buscado esta en el indice %d\n", i);
+			return;
+		}
+	}
+	printf("El dato %d no se encuentra en el archivo.\n", dato);
+	return;
+}
+
 
 int main()
 {
-	int arreglo[SIZE], i;
+	int arreglo[SIZE], i, dato;
+	int incr[] = {3, 2, 1};
 
 	srand( time(0) );				//  Seed RANDom - Semilla de numeros aleatorios
 
@@ -34,11 +50,15 @@ int main()
 	printf("Arreglo desordenado: \n");
 	imprimeArreglo(arreglo);
 
-	//  Invoque su algoritmo de ordenamiento aquí
-	nombreAlgoritmo(arreglo);
+	printf("Dame el dato a buscar: ");
+	scanf("%d", &dato);
 
-	printf("Arreglo ordenado: \n");
-	imprimeArreglo(arreglo);
+	secuencial(arreglo, SIZE, dato);
+	binaria(arreglo, 0, SIZE, dato);
+
+
+	//printf("Arreglo ordenado: \n");
+	//imprimeArreglo(arreglo);
 	
 	pausa;
 	return 0;
