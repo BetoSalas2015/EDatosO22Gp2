@@ -1,65 +1,38 @@
-//  Sesión 24 - 10/10/2022   -- Plantilla de Ordenamientos
+//  Sesión 34 - 04/11/2022   -- Apuntadores
 #include <stdio.h>		//  Para la i/o del programa
 #include <stdlib.h>		//  Para system() y para los numeros aleatorios
-#include <time.h>		//  PAra la función time()
 
 #define pausa system("pause")
 #define cls system("cls")
 
-#define SIZE 15000			//  Tamaño de mi archivo de Datos
-
-void imprimeArreglo(int arr[])
-{
-	int i;
-	for(i = 0; i < SIZE; i++)
-		printf("%d, ", arr[i]);
-	putchar('\n');
-}
-
-void binaria(int arr[], int linf, int lsup, int dato)
-{
-	//
-}
-
-void secuencial(int arr[], int tamaño, int dato)
-{
-	int i, indice;
-	for(i = 0; i < tamaño; i++)
-	{
-		if(arr[i] == dato)
-		{
-			printf("El numero buscado esta en el indice %d\n", i);
-			return;
-		}
-	}
-	printf("El dato %d no se encuentra en el archivo.\n", dato);
-	return;
-}
-
-
 int main()
 {
-	int arreglo[SIZE], i, dato;
-	int incr[] = {3, 2, 1};
+	//int Costo = 60;		// DEclaro una variable que guarda enteros llamada Costo
+	//int *pointer;		// Declaro una variable que guarda derecciones de memoria donde hay enteros llamado pointer
 
-	srand( time(0) );				//  Seed RANDom - Semilla de numeros aleatorios
+	//printf("La direccion de memoria de la variable costo es: %p \n", &Costo);
+	//printf("La direccion de memoria de la variable pointer es: %p \n", &pointer);
 
-	for(i = 0; i < SIZE; i++)
-		arreglo[i] = rand() % 1000;
+	//pointer = &Costo;	// Guardo la direccion de memoria de Costo en la variable pointer
 
-	printf("Arreglo desordenado: \n");
-	imprimeArreglo(arreglo);
+	//printf("La direccion de memoria guardada en pointer es: %p \n", pointer);
+	//printf("El contendo de pointer es %d \n", *pointer);
 
-	printf("Dame el dato a buscar: ");
-	scanf("%d", &dato);
+	//*pointer = 100;
+	int a, b, res;
+	int *pa, *pb, *pc;
 
-	secuencial(arreglo, SIZE, dato);
-	binaria(arreglo, 0, SIZE, dato);
+	pa = &a; pb = &b; pc = &res; 
 
+	printf("Dame el primer numero: ");
+	scanf("%d", pa );
+	printf("Dame el segundo numero: ");
+	scanf("%d", pb );
 
-	//printf("Arreglo ordenado: \n");
-	//imprimeArreglo(arreglo);
-	
+	*pc = *pa + *pb;
+
+	printf("El resultado es: %d\n", *pc);
+
 	pausa;
 	return 0;
 }
