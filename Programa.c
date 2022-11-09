@@ -1,4 +1,4 @@
-//  Sesión 35 - 07/11/2022   -- Apuntadores
+//  Sesión 36 - 09/11/2022   -- Apuntadores
 #include <stdio.h>		//  Para la i/o del programa
 #include <stdlib.h>		//  Para system() y para los numeros aleatorios
 
@@ -6,7 +6,6 @@
 #define cls system("cls")
 
 int square(int *num);
-
 
 int main()
 {
@@ -36,26 +35,26 @@ int main()
 
 	//printf("El resultado es: %d\n", *pc);
 
-	int *pointer,i;
-	int	arreglo[5]; 
-	int *ptrarr[5];			//  Declaro un arreglo de Apuntadores a entero
+	/*int *pointer = NULL;
+	int	arreglo[5],i; 
+	int *ptrarr[5];		*/	//  Declaro un arreglo de Apuntadores a entero
 
-	printf("El tamaño de el apuntador a enteros es: %d\n", sizeof(int *) );
-	printf("El tamaño de el apuntador a enteros es: %d\n", sizeof(double *) );
-	printf("El tamaño de el apuntador a enteros es: %d\n", sizeof(char *) );
+	//printf("El tamaño de el apuntador a enteros es: %d\n", sizeof(int *) );
+	//printf("El tamaño de el apuntador a enteros es: %d\n", sizeof(double *) );
+	//printf("El tamaño de el apuntador a enteros es: %d\n", sizeof(char *) );
 
-	printf("La dirección de Memeoria de arreglo[0] es %p\n", &arreglo[0]);
-	printf("La dirección de Memeoria de arreglo[1] es %p\n", &arreglo[1]);
-	printf("La dirección de Memeoria de arreglo[2] es %p\n", &arreglo[2]);
-	printf("La dirección de Memeoria de arreglo[3] es %p\n", &arreglo[3]);
-	printf("La dirección de Memeoria de arreglo[4] es %p\n", &arreglo[4]);
+	//printf("La dirección de Memeoria de arreglo[0] es %p\n", &arreglo[0]);
+	//printf("La dirección de Memeoria de arreglo[1] es %p\n", &arreglo[1]);
+	//printf("La dirección de Memeoria de arreglo[2] es %p\n", &arreglo[2]);
+	//printf("La dirección de Memeoria de arreglo[3] es %p\n", &arreglo[3]);
+	//printf("La dirección de Memeoria de arreglo[4] es %p\n", &arreglo[4]);
 
-	pointer = arreglo;		// Especifico el elemento del arreglo al cual voy a apuntar
+	//pointer = arreglo;		// Especifico el elemento del arreglo al cual voy a apuntar
 
-	printf("LA dirección guardada en pointer es %p\n", pointer);
+	//printf("LA dirección guardada en pointer es %p\n", pointer);
 
 	//-------------------------------------------------------------
-	 
+	/* 
 	for(i = 0; i < 5; i++)
 	{
 		ptrarr[i] = &arreglo[i];
@@ -65,13 +64,41 @@ int main()
 	i = 5;
 	square(&i);
 
-	printf("i = %d\n", i);
+	printf("i = %d\n", i);*/
+	///*int *pointer = NULL;
+	//int arreglo[5],i; 
+	//int *ptrarr[5];	
 
+	//printf("La dirección de Memeoria de arreglo[0] es %p\n", &arreglo[0]);
+	//printf("La dirección de Memeoria de arreglo[1] es %p\n", &arreglo[1]);
+	//printf("La dirección de Memeoria de arreglo[2] es %p\n", &arreglo[2]);
+	//printf("La dirección de Memeoria de arreglo[3] es %p\n", &arreglo[3]);
+	//printf("La dirección de Memeoria de arreglo[4] es %p\n", &arreglo[4]);
+
+	//pointer = &arreglo[2];
+	//pointer = pointer + 1;
+
+	//printf("La dirección guardada en pointer - 2 es %p\n", pointer - 2);
+	//printf("La dirección guardada en pointer - 1 es %p\n", pointer - 1);
+	//printf("La dirección guardada en pointer es %p\n", pointer);
+	//printf("La dirección guardada en pointer + 1 es %p\n", pointer + 1);
+	//printf("La dirección guardada en pointer + 2 es %p\n", pointer + 2);*/
+	char cadena[80];		// Estouy creando una cadena de 80 caracteres
+	int i;
+	printf("Dame una cadena: ");
+	gets(cadena);
+	i = 0;					//  Me posiciono en el primer caracter de la cadena
+	while( cadena[i] != '\0')
+	{
+		printf("cadena[%d] = '%c'\n", i, cadena[i]);
+		i++;
+	}
 	pausa;
 	return 0;
 }
 
 int square(int *num)
 {
-	return num + (*num++);
+	(*num)++;
+	return   *num * *num;
 }
