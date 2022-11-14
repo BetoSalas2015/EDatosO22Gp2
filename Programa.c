@@ -1,4 +1,4 @@
-//  Sesión 37 - 11/11/2022   -- Apuntadores
+//  Sesión 38 - 14/11/2022   -- Apuntadores
 #include <stdio.h>		//  Para la i/o del programa
 #include <stdlib.h>		//  Para system() y para los numeros aleatorios
 
@@ -82,24 +82,27 @@ int main()
 	//printf("La dirección guardada en pointer es %p\n", pointer);
 	//printf("La dirección guardada en pointer + 1 es %p\n", pointer + 1);
 	//printf("La dirección guardada en pointer + 2 es %p\n", pointer + 2);*/
-	char cadena[80];		// Estouy creando una cadena de 80 caracteres
-	char *ptr;
+	char cadena[80];		// Estoy creando una cadena de 80 caracteres
+	char *ptr, *ptr2;
 	int cont = 0;
 	printf("Dame una cadena: ");
 	gets(cadena);
-	ptr = cadena;					//  Me posiciono en el primer caracter de la cadena
-	while( *ptr != '\0')
+	ptr = ptr2 = cadena;					//  Me posiciono en el primer caracter de la cadena
+	while( *ptr2 != '\0')
 	{	
-		ptr++;
+		ptr2++;
 	}
-	ptr--;
-	while(ptr >= &cadena[0])
+	ptr2--;
+	while( ptr <= ptr2)
 	{
-		printf("Cadena[%d] = '%c'\n", ptr - cadena, *ptr);
-		ptr--;
-
+		if(*ptr != *ptr2) {
+			printf("La cadena no es palindroma\n" );
+			pausa;
+			return 1;
+		}
+		ptr++; ptr2--;
 	}
-
+	printf("La cadena es palindroma\n");
 	pausa;
 	return 0;
 }
