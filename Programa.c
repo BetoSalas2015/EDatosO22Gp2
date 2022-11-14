@@ -1,11 +1,10 @@
-//  Sesión 36 - 09/11/2022   -- Apuntadores
+//  Sesión 37 - 11/11/2022   -- Apuntadores
 #include <stdio.h>		//  Para la i/o del programa
 #include <stdlib.h>		//  Para system() y para los numeros aleatorios
 
 #define pausa system("pause")
 #define cls system("cls")
 
-int square(int *num);
 
 int main()
 {
@@ -84,21 +83,29 @@ int main()
 	//printf("La dirección guardada en pointer + 1 es %p\n", pointer + 1);
 	//printf("La dirección guardada en pointer + 2 es %p\n", pointer + 2);*/
 	char cadena[80];		// Estouy creando una cadena de 80 caracteres
-	int i;
+	char *ptr;
+	int cont = 0;
 	printf("Dame una cadena: ");
 	gets(cadena);
-	i = 0;					//  Me posiciono en el primer caracter de la cadena
-	while( cadena[i] != '\0')
-	{
-		printf("cadena[%d] = '%c'\n", i, cadena[i]);
-		i++;
+	ptr = cadena;					//  Me posiciono en el primer caracter de la cadena
+	while( *ptr != '\0')
+	{	
+		ptr++;
 	}
+	ptr--;
+	while(ptr >= &cadena[0])
+	{
+		printf("Cadena[%d] = '%c'\n", ptr - cadena, *ptr);
+		ptr--;
+
+	}
+
 	pausa;
 	return 0;
 }
 
-int square(int *num)
-{
-	(*num)++;
-	return   *num * *num;
-}
+//int square(int *num)
+//{
+//	(*num)++;
+//	return   *num * *num;
+//}
