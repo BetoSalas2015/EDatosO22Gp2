@@ -1,37 +1,65 @@
-//  Sesión 40 - 18/11/2022   -- Archivos
+//  Sesión 43 - 28/11/2022 - pila
 #include <stdio.h>		//  Para la i/o del programa
-#include <stdlib.h>		//  Para system() y para los numeros aleatorios
+#include <stdlib.h>		//  Para system() y para los numeros aleatorios.
 
 #define pausa system("pause")
 #define cls system("cls")
+#define SIZE 15 
 
-FILE *entrada, *salida;			//  Trabajar con archivos 
+char pila[SIZE];
+char *tope = pila;
+
+void push(char dato) 
+{
+	if( tope < (tope + SIZE) )
+	{
+		*tope = dato;
+		tope++;
+	}
+	else
+	{
+		printf("Overflow: no se pueden guardar mas datos.\n");
+		pausa;
+		return;
+	}
+}
+
+char pop()
+{
+	if(tope > pila )
+	{
+		tope--;
+		return *tope;
+	}
+	else
+	{
+		printf("Underflow: la pila está vacía.\n");
+		pausa;
+		return '\0';			//  regreso 0 o nulo
+	}
+}
+
+int isEmpty()
+{
+	if( tope != pila)
+		return 1;			//  regresamos true (1)
+	else
+		return 0;			//  Regresamos falso (0)
+}
+
 
 int main()
 {
-	char cadena[80];
-	entrada = fopen("Programa.c","r");		//  Abrimos el flujo
-	if(entrada == NULL)	
-	{
-		printf("El archivo existe.\n");
-		pausa;
-		return 1;					//  Error 1
-	}
-	salida = fopen("Copia de Programa.c","w");		//  Abrimos el flujo
-	if(salida == NULL)	
-	{
-		printf("El archivo no se pudo crear.\n");
-		pausa;
-		return 2;					//  Error 1
-	}
-	while( !feof(entrada) ) 
-	{
-		fgets(cadena,80,entrada);
-		fprintf(salida,cadena);
-		printf(cadena);
-	}
-	fclose(entrada);	
-	fclose(salida);					// Cerramos el Flujo
+	push('R');
+	push('o');
+	push('b');
+	push('e');
+	push('r');
+	push('t');
+	push('o');
+
+	puts(pila);
+
 	pausa;
 	return 0;
 }
